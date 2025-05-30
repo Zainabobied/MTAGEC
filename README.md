@@ -2,7 +2,7 @@
 **MTAGEC** is a multi-task framework for Arabic Grammatical Error Correction (AGEC) that performs:
 - Error correction
 - Error-type classification
-- Evidence (rationale) extraction
+- Explanation (rationale) evidence word extraction
 
 Trained on **ExplAGEC**: the largest synthetic dataset for explainable AGEC, with 21.8M sentence pairs and 25 error types.
 
