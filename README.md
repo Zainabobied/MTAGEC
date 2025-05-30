@@ -1,6 +1,5 @@
-# MTAGEC: Multi-Task Arabic Grammatical Error Correction with Synthetic Data
-
-**MTAGEC** is a unified framework for Arabic Grammatical Error Correction (AGEC) that performs:
+# MTAGEC
+**MTAGEC** is a multi-task framework for Arabic Grammatical Error Correction (AGEC) that performs:
 - Error correction
 - Error-type classification
 - Evidence (rationale) extraction
