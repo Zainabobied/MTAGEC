@@ -1,0 +1,152 @@
+# MTAGEC Configuration
+
+# Data paths
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  explagec_dir: "data/explagec"
+  qalb_dir: "data/qalb"
+  
+  # Synthetic data generation
+  synthetic:
+    input_files:
+      - "data/raw/arabic_wikipedia.txt"
+      - "data/raw/osian_corpus.txt"
+    output_file: "data/explagec/explagec_full.json"
+    error_rate: 0.1
+    seed: 42
+    
+  # QALB benchmark datasets
+  qalb:
+    qalb2014:
+      train: "data/qalb/qalb2014/train.txt"
+      dev: "data/qalb/qalb2014/dev.txt"
+      test: "data/qalb/qalb2014/test.txt"
+    qalb2015:
+      train: "data/qalb/qalb2015/train.txt"
+      dev: "data/qalb/qalb2015/dev.txt"
+      test: "data/qalb/qalb2015/test.txt"
+
+# Model configuration
+model:
+  name: "mtagec_transformer"
+  pretrained_model: "UBC-NLP/AraT5v2-base-1024"  # Options: "UBC-NLP/AraT5v2-base-1024", "aubmindlab/arabert-base-v2"
+  max_length: 512
+  batch_size: 8
+  gradient_accumulation_steps: 4
+  
+  # Training parameters
+  training:
+    learning_rate: 3.0e-5
+    epochs: 60
+    early_stopping_patience: 5
+    warmup_steps: 1000
+    weight_decay: 0.01
+    lambda_weight: 0.7  # Weight for explanation loss (Eq. 30)
+    alpha: 0.5  # Blending factor for encoder states
+    
+  # Decoding parameters
+  decoding:
+    beam_size: 5
+    top_p: 0.8
+    top_k: 75
+    temperature: 0.8
+    max_length: 256
+    post_explaining: true  # Whether to generate correction before explanation
+    
+# Evaluation metrics
+evaluation:
+  metrics:
+    - "precision"
+    - "recall"
+    - "f1"
+    - "f0.5"
+    - "error_type_accuracy"
+    - "evidence_f1"
+
+# Error types
+error_types:
+  # Orthographic errors
+  - code: "OA"
+    name: "Alif/Ya confusion"
+    category: "orthographic"
+  - code: "OH"
+    name: "Hamza confusion"
+    category: "orthographic"
+  - code: "OT"
+    name: "Ta/Ha confusion"
+    category: "orthographic"
+  - code: "OW"
+    name: "Alif variants"
+    category: "orthographic"
+  - code: "OC"
+    name: "Character transposition"
+    category: "orthographic"
+  - code: "ON"
+    name: "Confusion in Tanwin"
+    category: "orthographic"
+  - code: "OS"
+    name: "Vowel reduction"
+    category: "orthographic"
+  - code: "OG"
+    name: "Vowel elongation"
+    category: "orthographic"
+  - code: "OR"
+    name: "Substitute a character"
+    category: "orthographic"
+  - code: "OD"
+    name: "Character addition"
+    category: "orthographic"
+  - code: "OM"
+    name: "Character deletion"
+    category: "orthographic"
+    
+  # Morphological errors
+  - code: "XF"
+    name: "Definite article misuse"
+    category: "morphological"
+  - code: "XG"
+    name: "Gender agreement"
+    category: "morphological"
+  - code: "XN"
+    name: "Number agreement"
+    category: "morphological"
+  - code: "XT"
+    name: "Unnecessary word"
+    category: "morphological"
+  - code: "XM"
+    name: "Missing word"
+    category: "morphological"
+  - code: "MI"
+    name: "Derivation error"
+    category: "morphological"
+  - code: "MT"
+    name: "Verb tenses"
+    category: "morphological"
+    
+  # Semantic errors
+  - code: "SC"
+    name: "Confusion in conjunction"
+    category: "semantic"
+  - code: "SW"
+    name: "Incorrect word choice"
+    category: "semantic"
+    
+  # Punctuation errors
+  - code: "PC"
+    name: "Punctuation replacement"
+    category: "punctuation"
+  - code: "PM"
+    name: "Punctuation deletion"
+    category: "punctuation"
+  - code: "PT"
+    name: "Punctuation insertion"
+    category: "punctuation"
+    
+  # Merge/Split errors
+  - code: "MG"
+    name: "Word merging"
+    category: "merge_split"
+  - code: "SP"
+    name: "Extra space"
+    category: "merge_split"
