@@ -10,7 +10,7 @@ Trained on **ExplAGEC**: the largest synthetic dataset for explainable AGEC, wit
 <p align="center">
   <img src="docs/architecture_diagram.png" width="70%">
   <br>
-  <i>MTAGEC architecture: multi-task transformer for correction, error-type classification, and evidence extraction</i>
+  <i>MTAGEC architecture: Arabic multi-task transformer for correction, error-type classification, and explanation </i>
 </p>
 
 ## Features
