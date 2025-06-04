@@ -2,7 +2,7 @@
 Evaluation script for MTAGEC.
 
 This script evaluates the MTAGEC model on test datasets.
-It supports evaluation on both ExplAGEC and QALB benchmarks.
+It supports evaluation on ExplAGEC benchmark.
 """
 import os
 import json
