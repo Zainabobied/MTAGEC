@@ -192,7 +192,7 @@ The model supports different training configurations:
 
 ## Citation
 
-Paper is under review : ) 
+#Paper is under review : ) 
 <!--
 ```bibtex
 @article{mahmoud2023mtagec,
