@@ -192,8 +192,8 @@ The model supports different training configurations:
 
 ## Citation
 
-### Paper is under review : ) 
-<!--
+
+
 ```bibtex
 @article{mahmoud2023mtagec,
   title={MTAGEC: Multi-Task Arabic Grammatical Error Correction as a sequence generation with Synthetic data},
@@ -201,7 +201,7 @@ The model supports different training configurations:
   journal={arXiv preprint},
   year={2023}
 }
-```
+
 
 ## License
 
