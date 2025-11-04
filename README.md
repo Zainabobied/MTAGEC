@@ -201,7 +201,7 @@ The model supports different training configurations:
   journal={arXiv preprint},
   year={2023}
 }
-
+```
 
 ## License
 
