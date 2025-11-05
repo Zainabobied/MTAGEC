@@ -197,7 +197,7 @@ The model supports different training configurations:
 ```bibtex
 @article{mahmoud2023mtagec,
   title={MTAGEC: Multi-Task Arabic Grammatical Error Correction as a sequence generation with Synthetic data},
-  author={Mahmoud, Zeinab and Li, Chunlin and Zappatore, Marco and Alfatemi, Ali and Solyman, Aiman},
+  author={Zeinab Mahmoud, Marco Zappatore, Natalia Kryvinska, Mohammed Abdalsalm, Ali Alfatemi, Aiman Solyman},
   journal={Journal of King Saud University-Computer and Information Sciences},
   year={2025}
 }
